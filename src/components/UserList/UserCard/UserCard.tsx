@@ -1,6 +1,5 @@
 import type { User } from "@/types/user.type"
 import FavoriteButton from "@/components/UserList/UserCard/FavoriteButton"
-import Link from "next/link"
 import Image from "next/image"
 import { memo } from "react"
 import { useFavorites } from "@/hooks/useFavorites"
@@ -21,11 +20,12 @@ const UserCard: React.FC<UserCardProps> = memo(
     } = useFavorites()
     const router = useRouter()
 
-    const handleProfileClick = (e: React.MouseEvent) => {
-      e.preventDefault()
-      // Store user data in localStorage
-      localStorage.setItem("selectedUser", JSON.stringify(user))
-      router.push(`/profile/${user.id}`)
+    const handleProfileClick = () => {
+      if (!isProfilePage) {
+        // Store user data in localStorage
+        localStorage.setItem("selectedUser", JSON.stringify(user))
+        router.push(`/profile/${user.id}`)
+      }
     }
 
     return (
@@ -37,20 +37,19 @@ const UserCard: React.FC<UserCardProps> = memo(
             alt={`Avatar of ${user.firstName} ${user.lastName}`}
             width={100}
             height={100}
-            loading={index < 5 ? "eager" : "lazy"}
             priority={index < 5}
+            unoptimized
           />
         </div>
 
         <div className="user-card__info">
-          <Link
-            href={`/profile/${user.id}`}
+          <button
             className="user-card__name"
-            onClick={isProfilePage ? handleProfileClick : undefined}
+            onClick={handleProfileClick}
             aria-label={`View profile of ${user.firstName} ${user.lastName}`}
           >
             {user.firstName} {user.lastName}
-          </Link>
+          </button>
           <div className="user-card__meta">
             <span className="user-card__username">{user.username}</span> /{" "}
             <span className="user-card__gender">{user.gender}</span>
@@ -69,7 +68,7 @@ const UserCard: React.FC<UserCardProps> = memo(
           alt={`Flag of ${user.nationality}`}
           width={24}
           height={16}
-          loading="lazy"
+          unoptimized
         />
         {isFavoritesLoaded && (
           <FavoriteButton

@@ -1,0 +1,29 @@
+.user-list {
+  width: 100%;
+
+  &__controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__sentinel {
+    height: 1px;
+  }
+
+  &__loading {
+    text-align: center;
+    color: var(--primary-color);
+    margin: 1.5rem 0;
+    font-size: var(--font-size-medium);
+  }
+
+  &__end {
+    text-align: center;
+    color: #888;
+    margin: 1.5rem 0;
+    font-size: var(--font-size-medium);
+  }
+}

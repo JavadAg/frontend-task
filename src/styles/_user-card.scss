@@ -1,0 +1,101 @@
+.user-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 1.5rem;
+  padding-inline: 3rem;
+  transition: box-shadow var(--transition);
+  position: relative;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-block: 1rem;
+
+  @media (max-width: 768px) {
+    padding-inline: 1rem;
+  }
+
+  &__id {
+    font-size: var(--font-size-small);
+    color: #666;
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+  }
+
+  &__avatar {
+    flex-shrink: 0;
+    img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--secondary-color);
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 200px;
+    flex: 1;
+  }
+
+  &__name {
+    font-size: var(--font-size-large);
+    font-weight: 600;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: text-decoration var(--transition);
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__meta {
+    font-size: var(--font-size-medium);
+    color: #666;
+    margin-bottom: 0.25rem;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 250px;
+    flex: 1;
+  }
+
+  &__phone {
+    font-size: var(--font-size-small);
+    color: #888;
+  }
+
+  &__email {
+    font-size: var(--font-size-medium);
+    font-weight: 600;
+    color: var(--primary-color);
+  }
+
+  &__address {
+    font-size: var(--font-size-small);
+    color: #888;
+  }
+
+  &__flag {
+    width: 24px;
+    margin-left: auto;
+    margin-right: 0;
+    height: 16px;
+    border-radius: 2px;
+    object-fit: cover;
+    border: 1px solid #eee;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    flex-shrink: 0;
+  }
+}

@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Frontend User List App
+
+A modern, accessible, and production-ready user list application built with Next.js, TypeScript, and SCSS (BEM). Features infinite scroll, search, filters, favorites, profile pages, CSV export, and more.
+
+## Features
+
+- User list with infinite scroll (optimized for large lists)
+- Search by nationality and filter by gender
+- Add/remove users to favorites (persisted in localStorage)
+- Favorites page and user profile page
+- Download current user list as CSV
+- Responsive, accessible UI (keyboard, screen reader, skip links, ARIA)
+- Dockerized for easy deployment
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org/) (App Router, TypeScript)
+- [SCSS (BEM)](https://getbem.com/)
 
 ## Getting Started
 
-First, run the development server:
+### 1. Install dependencies
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```sh
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Run the development server
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Learn More
+### 3. Run tests
 
-To learn more about Next.js, take a look at the following resources:
+```sh
+npm test
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 4. Build for production
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```sh
+npm run build
+npm start
+```
 
-## Deploy on Vercel
+## Docker Usage
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Build and run the app in a container:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```sh
+docker build -t frontend-task .
+docker run -p 3000:3000 frontend-task
+```
+
+## Deployment
+
+- **Vercel:** Push to GitHub/GitLab and import to [Vercel](https://vercel.com/). No extra config needed.
+- **Docker:** Use the provided Dockerfile for any Docker-compatible host.

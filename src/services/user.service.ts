@@ -56,11 +56,6 @@ function mapApiUserToUser(apiUser: ApiUser): User {
     phone: apiUser.phone,
     picture: apiUser.picture.medium,
     nationality: apiUser.nat,
-    address: `${apiUser.location.street.number} ${apiUser.location.street.name}, ${apiUser.location.city}, ${apiUser.location.state}, ${apiUser.location.country}, ${apiUser.location.postcode}`,
-    flag: getFlagPath(apiUser.nat)
+    address: `${apiUser.location.street.number} ${apiUser.location.street.name}, ${apiUser.location.city}, ${apiUser.location.state}, ${apiUser.location.country}, ${apiUser.location.postcode}`
   }
-}
-
-export function getFlagPath(nat: string): string {
-  return `/flags/${nat.toLowerCase()}.png`
 }

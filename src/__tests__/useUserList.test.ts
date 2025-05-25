@@ -20,8 +20,7 @@ describe("useUserList", () => {
       picture: "thumbnail1.jpg",
       gender: "male",
       nationality: "US",
-      address: "123 Main St",
-      flag: "us"
+      address: "123 Main St"
     }
   ]
 
@@ -36,8 +35,7 @@ describe("useUserList", () => {
       picture: "thumbnail2.jpg",
       gender: "female",
       nationality: "UK",
-      address: "456 High St",
-      flag: "uk"
+      address: "456 High St"
     }
   ]
 

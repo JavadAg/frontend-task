@@ -64,7 +64,7 @@ const UserCard: React.FC<UserCardProps> = memo(
 
         <Image
           className="user-card__flag"
-          src={user.flag}
+          src={`/flags/${user.nationality.toLowerCase()}.png`}
           alt={`Flag of ${user.nationality}`}
           width={24}
           height={16}

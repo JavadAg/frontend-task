@@ -25,7 +25,6 @@ export interface User {
   picture: string
   nationality: string
   address: string
-  flag: string
 }
 
 export interface ApiUser {

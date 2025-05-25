@@ -13,8 +13,7 @@ describe("useFavorites", () => {
     picture: "thumbnail1.jpg",
     gender: "male",
     nationality: "US",
-    address: "123 Main St",
-    flag: "us"
+    address: "123 Main St"
   }
 
   beforeEach(() => {

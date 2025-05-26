@@ -2,8 +2,7 @@ import { useState, useEffect } from "react"
 import type { User } from "@/types/user.type"
 import { fetchUsers } from "@/services/user.service"
 import { genderOptions } from "@/types/user.type"
-
-const PAGE_SIZE = 20
+import { PAGE_SIZE } from "@/constants/user.constant"
 
 type Gender = (typeof genderOptions)[number]
 
@@ -20,13 +19,15 @@ export const useUserList = (initialUsers: User[], seed: string) => {
   const loadMoreUsers = async (gender?: Gender | null, nat?: string | null) => {
     if (!isLoading && hasMore) {
       setIsLoading(true)
+
       const newUsers = await fetchUsers({
-        page: page,
+        page,
         results: PAGE_SIZE,
         gender: gender || undefined,
         nat: nat || undefined,
         seed
       })
+
       setUsers((prev) => [...prev, ...newUsers.users])
       setHasMore(newUsers.results === PAGE_SIZE)
       setPage(newUsers.page + 1)

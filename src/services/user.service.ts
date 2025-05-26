@@ -6,10 +6,11 @@ import {
   FetchUsersResponse,
   User
 } from "@/types/user.type"
+import { PAGE_SIZE } from "@/constants/user.constant"
 
 export async function fetchUsers({
   page = 1,
-  results = 20,
+  results = PAGE_SIZE,
   gender,
   nat,
   seed

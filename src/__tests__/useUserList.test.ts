@@ -2,6 +2,7 @@ import { renderHook, act } from "@testing-library/react"
 import { useUserList } from "@/hooks/useUserList"
 import { fetchUsers } from "@/services/user.service"
 import type { User } from "@/types/user.type"
+import { PAGE_SIZE } from "@/constants/user.constant"
 
 // Mock the fetchUsers service
 jest.mock("@/services/user.service", () => ({
@@ -43,7 +44,7 @@ describe("useUserList", () => {
     jest.clearAllMocks()
     ;(fetchUsers as jest.Mock).mockResolvedValue({
       users: mockNewUsers,
-      results: 20,
+      results: PAGE_SIZE,
       page: 2
     })
   })
@@ -79,7 +80,7 @@ describe("useUserList", () => {
 
     expect(fetchUsers).toHaveBeenCalledWith({
       page: 2,
-      results: 20,
+      results: PAGE_SIZE,
       seed: "test"
     })
     expect(result.current.users).toEqual([...mockInitialUsers, ...mockNewUsers])
@@ -96,7 +97,7 @@ describe("useUserList", () => {
 
     expect(fetchUsers).toHaveBeenCalledWith({
       page: 2,
-      results: 20,
+      results: PAGE_SIZE,
       gender: "male",
       nat: "US",
       seed: "test"

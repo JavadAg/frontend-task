@@ -8,6 +8,7 @@ import SearchBar from "./UserFilters/SearchBar/SearchBar"
 import GenderFilter from "./UserFilters/GenderFilter/GenderFilter"
 import DownloadButton from "./DownloadButton/DownloadButton"
 import { Virtuoso } from "react-virtuoso"
+import { PAGE_SIZE } from "@/constants/user.constant"
 
 interface UserListProps {
   initialUsers: User[]
@@ -45,7 +46,7 @@ const UserList: React.FC<UserListProps> = ({ initialUsers, page, seed }) => {
           data={users}
           useWindowScroll={true}
           endReached={() => loadMoreUsers(gender, search)}
-          overscan={20}
+          overscan={PAGE_SIZE}
           itemContent={(index, user) => (
             <UserCard index={index} key={user.id} user={user} />
           )}
